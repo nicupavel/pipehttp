@@ -1,0 +1,16 @@
+name: Build
+
+on: [push]
+
+jobs:
+    build:
+        name: Release
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Install build tools
+              run: sudo apt-get install -y build-essential 
+
+            - name: Compile
+              run: make
