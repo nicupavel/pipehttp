@@ -1,3 +1,5 @@
+[![Build](https://github.com/nicupavel/pipehttp/actions/workflows/build.yml/badge.svg)](https://github.com/nicupavel/pipehttp/actions/workflows/build.yml)
+
 # Pipe Http
 *Small and high performance pipe input to http output with persistent in-memory circular buffer with no libraries dependencies.*
 
@@ -43,6 +45,7 @@ Known **GET /config** options:
 ## Building
 For building make and gcc are needed. Default installation root is ```usr/local``` that can be changed by exporting environment variable ROOT_PREFIX before doing ```make install```
 
+    git clone https://github.com/nicupavel/pipehttp.git
     cd pipehttp
     make
     sudo make install
@@ -71,9 +74,11 @@ Applications might not flush stdout so their output might not be visible to *ph*
 ## Similarity
 - If you don't need persistence (client access consumes buffer) or circular buffering  and rate limiting netcat/socat is a good alternative:
     - Server: 
-        ```# mkfifo mypipe```
-        ```# nc -l -p port < mypipe  | your_app > mypipe```
+        ```
+        # mkfifo mypipe
+        # nc -l -p port < mypipe  | your_app > mypipe
+        ```
     - Client:
-        ```nc server port```
+        ```# nc server port```
 
 - If you need to parse log data using patterns to make it queryable with HTTP use something like [grok_exporter](https://github.com/fstab/grok_exporter)
