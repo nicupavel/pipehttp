@@ -67,7 +67,9 @@ int http_parse_request_config(const char *path, ph_config_t *config) {
         return 1;
     }
     s++;  // skip '?'
-    for (char **known = known_keys; *known; known++) {
+
+    char **known = known_keys;
+    for (; *known; known++) {
         int v = 0;
         char *m = strstr(s, *known);
         if (m) {
@@ -125,7 +127,7 @@ char *http_response_lines(const char *body) {
     memcpy(response, header, header_len);
     memcpy(response + header_len, "\r\n\r\n", 4);
     memcpy(response + header_len + 4, body, body_len);
-    debug_print("  %ld:%lu response length\n", response_size, strlen(response));
+    debug_print("  %ld:%d response length\n", response_size, strlen(response));
 
     return response;
 }

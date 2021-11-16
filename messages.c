@@ -108,7 +108,7 @@ char *messages_get_formated(const unsigned int lines, const char *prefix,
         line_delimiter_len = strlen(line_delimiter);
     }
 
-    int l;
+    unsigned int l;
     for (l = 0, e = dlist_head(&messages); e != NULL && l < lines;
          e = e->next, l++) {
         if (e->data) {
@@ -134,7 +134,7 @@ char *messages_get_formated(const unsigned int lines, const char *prefix,
         return NULL;
     }
     memset(body, 0, total_messages_size + 1);
-    
+
     unsigned long int seek = 0;
 
     if (prefix) {

@@ -18,8 +18,8 @@ struct DListElmt_  *next;
 } DListElmt;
 
 typedef struct DList_ {
-int                size;
-int                max_size;
+unsigned int                size;
+unsigned int                max_size;
 void               (*destroy)(void *data);
 DListElmt          *head;
 DListElmt          *tail;

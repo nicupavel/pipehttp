@@ -162,7 +162,7 @@ int main(int argc, char *argv[]) {
                     void *result = NULL;
                     int type = http_parse_request(buffer, &result);
 
-                    if (type == PH_HTTP_ERROR) {                        
+                    if (type == PH_HTTP_ERROR) {
                         response = http_response_error();
                     } else if (type == PH_HTTP_CLEAR) {
                         messages_clear();
