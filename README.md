@@ -53,6 +53,10 @@ For building make and gcc are needed. Default installation root is ```usr/local`
     cd pipehttp
     make
     sudo make install
+    
+##  Building for Android AOSP/NDK
+Use the supplied Android.mk file and issue ```mm -B``` in the sources folder.
+
 
 ## Caveats
 Applications might not flush stdout so their output might not be visible to *ph* imediatelly. For example in grep case use ```grep --line-buffered``` to fix this. Also applications might dump multiple lines of text at once which *ph* will see it as a single line or block. When changing ```stdin_output``` dinamically using the REST API the next *ph* commands in a pipe chain will no longer get output from the modified *ph* instance. This might *be or not be* what you intended.
